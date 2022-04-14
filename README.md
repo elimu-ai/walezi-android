@@ -1,6 +1,6 @@
 # Walezi 🐼💎🐰
 
-Game for learning letter sounds.
+Android game for learning letter sounds.
 
 Corresponding [EGRA skill](https://github.com/elimu-ai/model/blob/master/src/main/java/ai/elimu/model/v2/enums/content/LiteracySkill.java): `LETTER_IDENTIFICATION`
 > Letter-sound identification tests the actual knowledge students need to have to be able to decode words—i.e., knowing the sound the letter represents allows students to sound out a word.

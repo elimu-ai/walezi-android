@@ -15,6 +15,8 @@ Corresponding [EGRA skill](https://github.com/elimu-ai/model/blob/master/src/mai
 
 [![](https://i.ytimg.com/vi/1yFMCvpfygE/hqdefault.jpg)](https://youtu.be/1yFMCvpfygE)
 
+[![](https://i.ytimg.com/vi/KinOkMc1kpQ/hqdefault.jpg)](https://youtu.be/KinOkMc1kpQ)
+
 ## Installation
 
 Note: This app depends on the [elimu.ai Content Provider](https://github.com/elimu-ai/content-provider) to be installed.

@@ -9,7 +9,7 @@ Corresponding [EGRA skill](https://github.com/elimu-ai/model/blob/master/src/mai
 
 ## Screenshots 📸
 
-<img width="640" alt="..." src="..." />
+<img width="640" alt="Walezi" src="https://user-images.githubusercontent.com/15718174/163380593-f661b6e7-c331-4bcb-a87d-a0021a92ae10.png" />
 
 ## Demo Videos 🎥
 

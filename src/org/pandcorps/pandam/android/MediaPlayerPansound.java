@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2009-2016, Andrew M. Martin
+Copyright (c) 2009-2021, Andrew M. Martin
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following
@@ -69,5 +69,24 @@ public class MediaPlayerPansound extends Pansound {
 		//	}}); // Still has gap
 		mediaPlayer.seekTo(0);
 		mediaPlayer.start();
+	}
+	
+	protected final void pause() {
+	    mediaPlayer.pause();
+	}
+	
+	protected final void resume() {
+        mediaPlayer.start();
+    }
+	
+	protected final void stop() {
+	    mediaPlayer.pause();
+	    mediaPlayer.seekTo(0);
+	    //mediaPlayer.stop(); // Can't restart after this
+	}
+	
+	@Override
+	protected final void runDestroy() {
+		mediaPlayer.release();
 	}
 }

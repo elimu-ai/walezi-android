@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2009-2016, Andrew M. Martin
+Copyright (c) 2009-2021, Andrew M. Martin
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following
@@ -22,6 +22,11 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 package org.pandcorps.pandam.android;
 
+import java.io.*;
+
+import org.pandcorps.core.*;
+import org.pandcorps.core.aud.*;
+import org.pandcorps.core.io.*;
 import org.pandcorps.pandam.*;
 
 import android.media.*;
@@ -31,17 +36,54 @@ public final class JetPansound extends Pansound {
 	private final String loc;
 	private final String fileName;
 	
+	protected JetPansound(final String loc, final InputStream in) {
+	    this.loc = loc;
+	    try {
+	        fileName = AndroidPangine.copyStreamToFile(loc, in).fileName;
+	    } catch (final Exception e) {
+	        throw Panception.get(e);
+	    }
+    }
+	
 	protected JetPansound(final String loc) {
-		this.loc = loc.substring(0, loc.length() - 3) + "jet";
+		this.loc = loc;
 		fileName = copyResourceToFile();
 	}
 	
 	private final String copyResourceToFile() {
+	    if (loc.endsWith("mid")) {
+	        return convertMidToJetFile();
+	    } else {
+	        return copyJetToFile();
+	    }
+	}
+	
+	private final String copyJetToFile() {
 		try {
 			return AndroidPangine.copyResourceToFile(loc).fileName;
 		} catch (final Exception e) {
     		throw Panception.get(e);
     	}
+	}
+	
+	private final String convertMidToJetFile() {
+	    InputStream in = null;
+	    NamedOutputStream out = null;
+        try {
+            in = Iotil.getResourceInputStream(loc);
+            out = AndroidPangine.getCopyOutputStream(toJetLocation(loc));
+            Mid2Jet.convert(in, out);
+            return out.getName();
+        } catch (final Exception e) {
+            throw Panception.get(e);
+        } finally {
+            Iotil.close(out);
+            Iotil.close(in);
+        }
+	}
+	
+	protected final static String toJetLocation(final String midLocation) {
+	    return midLocation.substring(0, midLocation.length() - 3) + "jet";
 	}
 	
 	@Override
@@ -71,5 +113,9 @@ public final class JetPansound extends Pansound {
 		if (!jetPlayer.play()) {
 			throw new Panception("Failed to play Jet file");
 		}
+	}
+	
+	@Override
+	protected final void runDestroy() {
 	}
 }

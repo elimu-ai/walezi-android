@@ -17,6 +17,61 @@ Corresponding [EGRA skill](https://github.com/elimu-ai/model/blob/master/src/mai
 
 [![](https://i.ytimg.com/vi/KinOkMc1kpQ/hqdefault.jpg)](https://youtu.be/KinOkMc1kpQ)
 
+## Build & Run 🔨
+
+### Prerequisites
+
+- Android SDK (API 33 platform and build-tools)
+- Java 17 (or 11+)
+- Git
+
+### Clone
+
+```bash
+git clone --recursive https://github.com/elimu-ai/walezi-android.git
+cd walezi-android
+```
+
+If already cloned without `--recursive`:
+
+```bash
+git submodule update --init
+```
+
+### Build
+
+```bash
+# All variants (debug)
+./gradlew assembleDebug
+
+# Specific variant
+./gradlew assembleFurguardiansDebug
+./gradlew assembleBotsnboltsDebug
+./gradlew assembleBoardDebug
+```
+
+### Install on device
+
+```bash
+./gradlew installFurguardiansDebug
+```
+
+### APK output
+
+```
+build/outputs/apk/furguardians/debug/walezi-android-furguardians-debug.apk
+build/outputs/apk/botsnbolts/debug/walezi-android-botsnbolts-debug.apk
+build/outputs/apk/board/debug/walezi-android-board-debug.apk
+```
+
+### Game variants
+
+| Flavor | Package | Description |
+|--------|---------|-------------|
+| `furguardians` | `org.pandcorps.furguardians` | Fur Guardians |
+| `botsnbolts` | `org.pandcorps.botsnbolts` | Bots 'n Bolts |
+| `board` | `org.pandcorps.board` | 2-Player Games For 1 Device |
+
 ## Installation
 
 > [!IMPORTANT]

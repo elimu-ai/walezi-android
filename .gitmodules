@@ -1,0 +1,3 @@
+[submodule "pandam"]
+	path = pandam
+	url = https://github.com/pandcorps/pandam.git

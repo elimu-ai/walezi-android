@@ -3,7 +3,7 @@
 
     <application>
         <activity
-            android:name="org.pandcorps.furguardians.FurGuardiansAct"
+            android:name="org.pandcorps.board.BoardAct"
             android:label="@string/app_name"
             android:screenOrientation="landscape"
             android:configChanges="keyboardHidden|orientation|screenSize"

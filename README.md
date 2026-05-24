@@ -30,6 +30,7 @@ Corresponding [EGRA skill](https://github.com/elimu-ai/model/blob/master/src/mai
 ```bash
 git clone --recursive https://github.com/elimu-ai/walezi-android.git
 cd walezi-android
+git clone https://github.com/pandcorps/pandam.git pandam
 ```
 
 If already cloned without `--recursive`:
